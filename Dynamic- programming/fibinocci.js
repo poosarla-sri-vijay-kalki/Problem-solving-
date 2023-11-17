@@ -1,5 +1,6 @@
 var recursiveFibonacciIteratorCount = 0;
 var memorizationFibonacciIteratorCount = 0;
+var tableFibonacciIteratorCount = 0;
 
 /**
  *
@@ -37,6 +38,29 @@ function memorizationFibonacci(n) {
   return fibonociiMemory[n];
 }
 
+// Tabluation Method
+
+/**
+ *
+ *  This is the function using tabluation method
+ *  The time complexity is O(n)
+ *  The Space Compexisy is O(n)
+ *  This has both pros and cons compared to the above method.
+ *  Depends on the requirement we have select and use it.
+ *
+ */
+var tabluationFibobacciMemory = [];
+function tabluationFibobacci(n) {
+  tabluationFibobacciMemory[0] = 0;
+  tabluationFibobacciMemory[1] = 1;
+  for (let i = 2; i <= n; i++) {
+    tableFibonacciIteratorCount++;
+    tabluationFibobacciMemory[i] =
+      tabluationFibobacciMemory[i - 1] + tabluationFibobacciMemory[i - 2];
+  }
+  return tabluationFibobacciMemory[n];
+}
+
 // testing
 var testNumber = 10;
 console.log(recursiveFibonacci(testNumber));
@@ -51,4 +75,11 @@ console.log(
   `memorizationFibonacciIteratorCount for exectung for n = ${testNumber} is  ${memorizationFibonacciIteratorCount}`
 );
 memorizationFibonacciIteratorCount = 0;
+console.log("----------------------------------------------------");
+
+console.log(tabluationFibobacci(testNumber));
+console.log(
+  `tableFibonacciIteratorCount for exectung for n = ${testNumber} is  ${tableFibonacciIteratorCount}`
+);
+tableFibonacciIteratorCount = 0;
 console.log("----------------------------------------------------");
