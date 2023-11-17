@@ -61,6 +61,22 @@ function tabluationFibobacci(n) {
   return tabluationFibobacciMemory[n];
 }
 
+/**
+ * This is a space optimized abulation method.
+ * store only required values
+ */
+var previous = 1;
+var nextPrevious = 0;
+function tabluationFibobacciNoMem(n) {
+  let current;
+  for (let i = 2; i <= n; i++) {
+    current = previous + nextPrevious;
+    nextPrevious = previous;
+    previous = current;
+  }
+  return current;
+}
+
 // testing
 var testNumber = 10;
 console.log(recursiveFibonacci(testNumber));
@@ -82,4 +98,11 @@ console.log(
   `tableFibonacciIteratorCount for exectung for n = ${testNumber} is  ${tableFibonacciIteratorCount}`
 );
 tableFibonacciIteratorCount = 0;
+console.log("----------------------------------------------------");
+
+console.log(
+  `using tabulation and no memory method ${tabluationFibobacciNoMem(
+    testNumber
+  )}`
+);
 console.log("----------------------------------------------------");
