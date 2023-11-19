@@ -54,3 +54,25 @@ var climbStairs = function (n) {
   }
   return climbStairsMemo[n];
 };
+
+/**
+ * @param {number} n
+ * @return {number}
+ *
+ * apart from tabuliation sinc we need only the previous 2 values, we can save only those values.
+ * This will optimize memory further.
+ *
+ */
+
+var climbStairs = function (n) {
+  let current = 0;
+  let previous = 1;
+  let secondPrevious = 1;
+  if (n == 1) return 1;
+  for (let i = 2; i <= n; i++) {
+    current = previous + secondPrevious;
+    secondPrevious = previous;
+    previous = current;
+  }
+  return current;
+};
