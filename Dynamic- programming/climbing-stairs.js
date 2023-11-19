@@ -34,3 +34,23 @@ var climbStairs = function (n) {
   climbStairsMemo[n] = climbStairs(n - 1) + climbStairs(n - 2);
   return climbStairsMemo[n];
 };
+
+/**
+ * @param {number} n
+ * @return {number}
+ *
+ * this is implemented using tabulation.
+ * This decreases the meomory as no memory is require for stack frame(recursive function frame's memory)
+ *
+ */
+
+var climbStairsMemo = [];
+climbStairsMemo[0] = 1;
+climbStairsMemo[1] = 1;
+var climbStairs = function (n) {
+  console.log(climbStairsMemo[0]);
+  for (let i = 2; i <= n; i++) {
+    climbStairsMemo[i] = climbStairsMemo[i - 1] + climbStairsMemo[i - 2];
+  }
+  return climbStairsMemo[n];
+};
