@@ -16,3 +16,21 @@ var climbStairs = function (n) {
   if (n == 0) return 1;
   return climbStairs(n - 1) + climbStairs(n - 2);
 };
+
+/**
+ * @param {number} n
+ * @return {number}
+ *
+ * this is implemented using memorizationand recursion
+ * in this way duplicate iterations are eliminated
+ */
+
+var climbStairs = function (n) {
+  var climbStairsMemo = [];
+  if (n < climbStairsMemo.length && !isNaN(climbStairsMemo[n]))
+    return climbStairsMemo[n];
+  if (n == 1) return 1;
+  if (n == 0) return 1;
+  climbStairsMemo[n] = climbStairs(n - 1) + climbStairs(n - 2);
+  return climbStairsMemo[n];
+};
