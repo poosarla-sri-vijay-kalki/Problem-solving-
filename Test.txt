@@ -2,3 +2,6 @@ this is the t3st file to commit
 this is test
 nedd to update each files
 In this filder dynamic programming questions are solved.
+
+
+various problems are being solved 
